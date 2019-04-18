@@ -1,55 +1,31 @@
 // Aquí importas las vistas
-import {templates} from '../src/lib/ui'
+import {viewMesero} from './lib/ui/ui-mesero.js'
 
 const changeTmp = (hash) =>{
 if(hash === '#/' || hash === '' || hash === '#'){
-  return  viewTmp('#/menu');
-} else if (hash === '#/menuDesayuno' || '#/menuRestoDelDia'){
+  return  viewTmp('#/mesero');
+} else if (hash === '#/mesero'){
   return viewTmp(hash);
 } else {
-  return viewTmp('#/menu')
+  return viewTmp('#/mesero')
 }
-}
+};
 
 const viewTmp = (routers) => {
   const router = routers.substr(2,routers.length -2);
-  const containerTypeMenu = document.getElementById('container-tipo-menu');
-  const containerOptionsTypeMenu = document.getElementById('container-opciones-tipo-menu');
-  const containerProductsMenu = document.getElementById('container-productos-menu');
-
-  containerOptionsTypeMenu.innerHTML = '';
-  containerProductsMenu.innerHTML = ''; 
+  const container= document.getElementById('container');  
+  container.innerHTML = ''; 
 
   switch (router){
-    case 'home':     
-    containerTypeMenu.appendChild(viewHome.home());      
-    break;
-    case 'desayuno':
-    containerOptionsTypeMenu.appendChild(viewOptionMenuDesayuno.optionsDesayuno())
-    break;  
-    case 'restoDelDia':
-    containerOptionsTypeMenu.appendChild(viewOptionMenuRestoDelDia.optionsRestoDelDia())
-    break;
-    case 'desayunoBebidas':
-    getMenuDesayunoBebidas((dataMenuDesayunoBebidas) => {    
-    containerProductsMenu.appendChild(viewMenuDesayunoBebidas.desayunoBebidas(dataMenuDesayunoBebidas))
-    });
-    break;
-    case 'desayunoSandWich':
-    getMenuDesayunoSandwich((dataMenuDesayunoSandwich) => {
-      containerProductsMenu.appendChild(viewMenuDesayunoSandwich.desayunoSandwich(dataMenuDesayunoSandwich))
-    });
-    break;
-    case 'menuRestoDelDia':
-    getMenuRestoDelDia((dataMenuRestoDelDia) => {
-    container.innerHTML = '';
-    container.appendChild(viewMenuRestoDelDia.menuRestoDelDia(dataMenuRestoDelDia));
-    break;
-    });    
+    case 'mesero':    
+    container.innerHTML= '';
+    container.appendChild(viewMesero.mesero())
+    break;    
     default:
-    containerTypeMenu.appendChild(viewMenu.home())
+    container.appendChild(viewMesero.mesero())
+    };    
   }
-}
+
 
 export const initRouter = () => {
   window.addEventListener('load', changeTmp(window.location.hash));

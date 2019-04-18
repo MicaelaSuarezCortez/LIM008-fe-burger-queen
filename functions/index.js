@@ -6,7 +6,6 @@ admin.initializeApp();
 // Get  the Firestore cliente for the default app
 admin.firestore().settings({ timestampsInSnapshots: true });
 
-
 exports.createProfile = functions.auth.user().onCreate(user => admin.firestore().doc(`users/${user.uid}`).set({
     email: user.email,
     displayName: user.displayName,
