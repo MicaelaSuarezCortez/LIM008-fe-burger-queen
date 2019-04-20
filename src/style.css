@@ -19,9 +19,9 @@
 }
 
 .menu {
-  display: flex;
- /* align-items: center; */
+ display: flex;
  justify-content: center;
+ background-color: #cccbc94f
 }
 
 .button {
@@ -34,13 +34,11 @@
  text-decoration: none;
  font-size: 16px;
  margin: 2%;
- cursor: pointer;
+ cursor: pointer; 
 }
 
 .buttonOptions {
  background-color:#fefaa2;
- 
-
 }
 
 .input {

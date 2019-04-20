@@ -1,10 +1,11 @@
+import{products} from '../ui/ui-mesero-products.js';
+import{getBebidasDesayuno} from '../controller/controller-getBebidas.js';
+
 export const viewMesero = {
    mesero: () => {
     const divHeader = document.createElement('div');
-    const contentDefault = `
-     
-       <header class="header">BURGER QUEEN</header>
-     
+    const contentDefault = `     
+       <header class="header">BURGER QUEEN</header>     
       <div class"container-fluid">
        <div class= "row">
         <div class="col-8">
@@ -13,16 +14,16 @@ export const viewMesero = {
             <button type="button" class="button">RESTO DEL DÍA</button>
           </div>
           <div class="menu">
-            <button type="button" class="button buttonOptions ">BEBIDAS</button>
-            <button type="button" class="button buttonOptions">SANDWICH</button>
+            <button type="button" class="button buttonOptions" id="btn-bebidas-desayuno">BEBIDAS</button>
+            <button type="button" class="button buttonOptions" id="btn-sandwich">SANDWICH</button>
           </div>
           <div class="menu">
-            <button type="button"  class="button buttonOptions">HAMBURGUESAS</button>
-            <button type="button"  class="button buttonOptions">BEBIDAS</button>
-            <button type="button"  class="button buttonOptions">ACOMPAÑAMIENTO</button>
+            <button type="button"  class="button buttonOptions" id="btn-hamburguesas">HAMBURGUESAS</button>
+            <button type="button"  class="button buttonOptions" id="btn-bebidas-resto-del-dia">BEBIDAS</button>
+            <button type="button"  class="button buttonOptions" id="btn-acompañamiento">ACOMPAÑAMIENTO</button>
           </div>
-        </div>
-     
+          <ul id="listProductos"></ul>
+        </div>     
       
         <div class="col-4">
           <label for="input-name" class="title">Cliente:</label>
@@ -37,27 +38,32 @@ export const viewMesero = {
               <th scope="col">Importe</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              
+          <tbody>        
+            <tr>              
             </tr>
           <tfoot>
             <tr>
-              <th colspan="3">Total</th>
-            
+              <th colspan="3">Total</th>            
               <th>0</th>
             </tr>
           </tfoot>
           </tbody>
-          </table>
-       
-      </div>
-        
+          </table>       
+      </div>        
    `;
-     divHeader.setAttribute('id', 'header');
-     // como se está usando innerHTML con un elemento del DOM 
-     // lo que le asigne se convertirá en un elemento DOM
+     divHeader.setAttribute('id', 'divHeader');
+     // como se está usando innerHTML con un elemento del DOM, lo que le asigne se convertirá en un elemento DOM.
      divHeader.innerHTML = contentDefault;     
+     
+     const btnbedidas = divHeader.querySelector('#btn-bebidas-desayuno')
+     btnbedidas.addEventListener('click', () =>{
+      getBebidasDesayuno((productos) => {       
+        productos.forEach(element => {
+          listProductos.appendChild(products(element))
+        });
+      })      
+     })
      return divHeader;
    }   
 };
+

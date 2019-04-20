@@ -1,4 +1,4 @@
-import {initializeFirebase} from './firebase/initialize-firebase.js'
+import {initializeFirebase} from '../src/lib/firebase/initialize-firebase.js'
 import {initRouter} from './router.js'
 
 const init = () => {
@@ -7,3 +7,5 @@ const init = () => {
 };
 
 window.onload = init();
+
+
