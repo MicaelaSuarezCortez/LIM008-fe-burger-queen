@@ -10,8 +10,8 @@ export const getBebidasDesayuno = (dataSnapshot) =>{
             })           
         });
         dataSnapshot(newArray);
-    });
-    
+    });    
 }
+
 
 
