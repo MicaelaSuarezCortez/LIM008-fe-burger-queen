@@ -4,19 +4,20 @@ import {addOrder} from '../ui/ui-addOrder.js';
 
 export const products = (product) => {
   const tmp = `    
-      <span id='span-name-${product.id}'>${product.nombre}</span>
-      <span id='span-price-${product.id}'>Precio: $ ${product.precio}</span>     
-      <span>Cantidad:</span>
+      <span class="label" id='span-name-${product.id}'>Producto: ${product.nombre}</span><br>
+      <span class="label" id='span-price-${product.id}'>Precio: $ ${product.precio}</span>  <br>   
+      <span class="label">Cantidad:</span>
       <input type="text" value="1" id='txt-quantity-${product.id}'></input>
-      <span>Importe:</span>
-      <span id="span-amount-${product.id}">$ ${product.precio}</span>
-      <button type="button" id='btn-add-${product.id}'>+</button> 
-      <button type="button" id='btn-substract-${product.id}'>-</button> 
-      <button type="button" id='btn-add-order-${product.id}'>Agregar</button>    
+      <span class="label">Importe:$ </span>
+      <span class="label" id="span-amount-${product.id}"> ${product.precio}</span>
+      <button type="button" class ="button buttonQuantity" id='btn-add-${product.id}'>+</button> 
+      <button type="button" class ="button buttonQuantity" id='btn-substract-${product.id}'>-</button> 
+      <button type="button" class = "button buttonAddOrder"id='btn-add-order-${product.id}'>Agregar</button><hr>    
   `;
   const contentProducts = document.createElement('div');
   contentProducts.setAttribute('id', `id-${product.id}`)
   contentProducts.setAttribute('data-product', JSON.stringify(product))
+  console.log(contentProducts)
   contentProducts.innerHTML = tmp;   
    
   let spanAmount = contentProducts.querySelector(`#span-amount-${product.id}`);
@@ -32,6 +33,7 @@ export const products = (product) => {
       spanAmount.innerHTML = amount
       const productContainer = document.getElementById(`id-${product.id}`)
       const data = JSON.parse(productContainer.dataset.product);
+      console.log(data)
       data.cantidad = valueQuantity
       contentProducts.setAttribute('data-product', JSON.stringify(data))
      return amount;

@@ -9,13 +9,16 @@
   font-size: 30px;
   color: #ffffff;
   text-align: center;
-  width: 100%
+  width: 100%;
+  padding: 2%
+
   /* justify-content: center   */
 }
 
 .title{
   font-size: 20px;
   text-align: center;
+  font-weight: bold
 }
 
 .menu {
@@ -41,6 +44,11 @@
  background-color:#fefaa2;
 }
 
+.buttonEnviarPedido{
+  background-color:#cb2a45;
+  color: #ffffff
+}
+
 .buttonDelete {
   background-color: #fefaa2;
   border: none;
@@ -50,6 +58,28 @@
   cursor: pointer;
   /* border-radius: 25px; */
 }
+
+.buttonQuantity{
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 22px;
+}
+
+.buttonAddOrder{
+  background-color:#383d41;
+  color: #ffffff; 
+  cursor: pointer;
+}
 .input {
   border-radius: 5px
+}
+
+.label {
+  font-weight: bold
+}
+
+hr {
+  border-bottom:solid 0.3px #fef85fa1;
+  widows: 100%;
+  
 }

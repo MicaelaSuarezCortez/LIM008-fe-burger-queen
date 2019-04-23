@@ -41,13 +41,15 @@ export const viewMesero = {
             
           <tfoot>
             <tr>
-              <th colspan="3">Total</th>            
+              <th colspan="4">Total</th>            
               <th>0</th>
             </tr>
           </tfoot>
           </tbody>
-          </table>       
-      </div>        
+          </table>  
+          <button type="button" class="button buttonEnviarPedido">Enviar a Cocina</button>     
+      </div> 
+
    `;
     const divHeader = document.createElement('div');
      divHeader.setAttribute('id', 'divHeader');
