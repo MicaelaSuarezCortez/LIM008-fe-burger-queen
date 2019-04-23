@@ -12,7 +12,7 @@ export const addOrder = (objOrder) => {
     <td>${objOrder.nombre}</td>
     <td>${objOrder.precio}</td>
     <td>${objOrder.cantidad}</td>
-    <td>${objOrder.importe}</td>  
+    <td>${objOrder.precio}</td>  
     <td><button type="button" class="buttonDelete rounded-circle"><i class="fa fa-trash"></i></button></td> 
   `;
   return trElement;
