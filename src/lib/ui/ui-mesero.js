@@ -9,17 +9,17 @@ export const viewMesero = {
        <div class= "row">
         <div class="col-8">
           <div class="menu">
-            <button type="button" class="button">DESAYUNO</button>
+            <button type="button" class="button" id="btn-breakfast">DESAYUNO</button>
             <button type="button" class="button">RESTO DEL DÍA</button>
           </div>
           <div class="menu">
-            <button type="button" class="button buttonOptions" id="btn-breakfast-drinks">BEBIDAS</button>
-            <button type="button" class="button buttonOptions" id="btn-sandwich">SANDWICH</button>
+            <button type="button" class="button buttonOptions" id="btn-breakfast-drinks" hidden>BEBIDAS</button>
+            <button type="button" class="button buttonOptions" id="btn-sandwich" hidden>SANDWICH</button>
           </div>
           <div class="menu">
-            <button type="button"  class="button buttonOptions" id="btn-burgers">HAMBURGUESAS</button>
-            <button type="button"  class="button buttonOptions" id="btn-drinks-rest-of-the-day">BEBIDAS</button>
-            <button type="button"  class="button buttonOptions" id="btn-accompaniment">ACOMPAÑAMIENTO</button>
+            <button type="button"  class="button buttonOptions" id="btn-burgers" hidden>HAMBURGUESAS</button>
+            <button type="button"  class="button buttonOptions" id="btn-drinks-rest-of-the-day" hidden>BEBIDAS</button>
+            <button type="button"  class="button buttonOptions" id="btn-accompaniment" hidden>ACOMPAÑAMIENTO</button>
           </div>
           <section id="sectionProducts"></section>
         </div>     
@@ -34,7 +34,7 @@ export const viewMesero = {
               <th scope="col">Producto</th>
               <th scope="col">Precio</th>
               <th scope="col">Cant.</th>
-              <th scope="col">Imp.</th>
+              <th scope="col" colspan="2">Imp.</th>
             </tr>
           </thead>
           <tbody>        
@@ -53,9 +53,15 @@ export const viewMesero = {
      divHeader.setAttribute('id', 'divHeader');
      // como se está usando innerHTML con un elemento del DOM, lo que le asigne se convertirá en un elemento DOM.
      divHeader.innerHTML = contentDefault;     
-     
-     const btndrinks = divHeader.querySelector('#btn-breakfast-drinks')
-     btndrinks.addEventListener('click', () =>{
+    
+     const btnBreakfast = divHeader.querySelector('#btn-breakfast')
+     btnBreakfast.addEventListener('click', () => {
+      divHeader.querySelector('#btn-breakfast-drinks').removeAttribute('hidden');
+      divHeader.querySelector('#btn-sandwich').removeAttribute('hidden');
+     })
+
+     const btndrinks = divHeader.querySelector('#btn-breakfast-drinks')     
+     btndrinks.addEventListener('click', () =>{     
       getBreakfastDrinks((breakfastDrinksData) => {       
         breakfastDrinksData.forEach(drinks => {
           sectionProducts.appendChild(products(drinks))

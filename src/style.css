@@ -41,6 +41,15 @@
  background-color:#fefaa2;
 }
 
+.buttonDelete {
+  background-color: #fefaa2;
+  border: none;
+  color: #333333;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  /* border-radius: 25px; */
+}
 .input {
   border-radius: 5px
 }

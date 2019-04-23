@@ -1,7 +1,7 @@
 export const getBreakfastDrinks = (dataSnapshot) =>{
     const newArray = [];
     firebase.firestore().collection("bebidas").where('tipo', '==', 'desayuno').onSnapshot((querySnapshot) => {
-        querySnapshot.forEach(function(doc) {
+        querySnapshot.forEach((doc) => {
             newArray.push({
                 id:doc.id,
                 nombre: doc.data().nombre,
